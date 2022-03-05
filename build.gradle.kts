@@ -17,6 +17,16 @@ kotlin {
     *  To find out how to configure the targets, please follow the link:
     *  https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#setting-up-targets */
 
+    jvm {
+        compilations.all {
+            kotlinOptions.jvmTarget = "1.8"
+        }
+        testRuns["test"].executionTask.configure {
+            useJUnit()
+        }
+        withJava()
+    }
+
     js(IR) {
         browser()
         binaries.executable()
@@ -41,6 +51,12 @@ kotlin {
             }
         }
         val jsTest by getting{
+
+        }
+        val jvmMain by getting{
+
+        }
+        val jvmTest by getting{
 
         }
     }
